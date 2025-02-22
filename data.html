@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .agriculture-section {
+            padding: 40px 20px;
+            background: #e8f5e9;
+            /* Faded very light green */
+            color: black;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px auto;
+            width: 85%;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            font-family: 'Georgia', serif;
+        }
+
+        .agriculture-section h2 {
+            color: green;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .agriculture-section p {
+            font-style: italic;
+        }
+
+        .data-card {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .data-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .data-image {
+            width: 80%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        #chart-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto 0 auto; /* Added vertical spacing */
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="agriculture-section">
+        <h2>Agriculture Data</h2>
+        <p>Agriculture plays a vital role in the Indian economy, with nearly 60% of the population engaged in farming
+            and allied activities. Here are some key statistics:</p>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="data-card">
+                        <ul>
+                            <li><strong>145 million farmers</strong> contribute to agriculture.</li>
+                            <li>Top crops: <strong>Rice, Wheat, Sugarcane, Cotton, Pulses</strong>.</li>
+                            <li>Agriculture contributes <strong>18% to the national GDP</strong>.</li>
+                            <li>India is a top producer of <strong>milk, spices, and horticultural crops</strong>.</li>
+                        </ul>
+                    </div>
+                    <div id="chart-container">
+                        <canvas id="cropChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <img class="data-image"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQAAwRcT0DNYK6UrPGILxoQIcDUyc8WMmGA&s"
+                        alt="Agriculture Statistics">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const ctx = document.getElementById('cropChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Rice', 'Wheat', 'Sugarcane', 'Cotton', 'Pulses'],
+                datasets: [{
+                    label: 'Production (Million Tons)',
+                    data: [120, 95, 85, 50, 60],
+                    backgroundColor: ['#4CAF50', '#FF9800', '#009688', '#3F51B5', '#FF5722'],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

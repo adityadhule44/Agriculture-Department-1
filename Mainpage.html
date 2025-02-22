@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Department of India</title>
+    <link rel="stylesheet" href="mainpage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* Navbar Styling */
+        .custom-navbar {
+            background: linear-gradient(to right, #007700, #009900);
+            /* Green gradient */
+            padding: 15px 0;
+            /* position: sticky; */
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navbar Links */
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-size: 1.25rem;
+            /* Increased font size */
+            /* font-weight: bold; Make the text bold */
+            padding: 10px 15px;
+            /* Increased padding for better spacing */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: blue !important;
+        }
+
+        /* Custom Button Styling */
+        .btn-custom {
+            border-radius: 25px;
+            padding: 10px 18px;
+            /* Slightly increased padding */
+            font-size: 1.2rem;
+            /* Increased font size */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            transform: scale(1.1);
+            background-color: #ffcc00 !important;
+            /* Highlight effect */
+            color: #333 !important;
+        }
+
+        /* Ministers Section */
+        .minister-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+            margin-bottom: 20px;
+            /* Added spacing */
+        }
+
+        .minister-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .minister-box img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .minister-box h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .minister-box p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            /* Spacing before button */
+        }
+
+        /* Minister Box Styles */
+        .minister-box a {
+            text-decoration: none;
+            /* Removes underline */
+            color: #333;
+            /* Dark gray color */
+        }
+
+        /* Ensure no underline appears when hovered */
+        .minister-box a:hover {
+            text-decoration: none;
+            color: #222;
+            /* Slightly darker on hover */
+        }
+
+
+        /* Modern Underline for Headings */
+        .content-box h4,
+        .recent-initiatives h4 {
+            font-size: 20px;
+            display: inline-block;
+            border-bottom: 3px solid #8B4513;
+            /* Brown underline */
+            padding-bottom: 5px;
+            /* Space between text and underline */
+            margin-bottom: 15px;
+            /* Space below heading */
+        }
+
+        /* Content Box */
+        .content-box,
+        .recent-initiatives {
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            /* Increased space between sections */
+        }
+
+        /* Styled More Button */
+        .more-btn {
+            display: inline-block;
+            background: #8B4513;
+            /* Brown color */
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+            /* Space above button */
+            display: block;
+            width: fit-content;
+        }
+
+        .more-btn:hover {
+            background: #A0522D;
+            /* Lighter brown on hover */
+        }
+
+        /* Adjust Spacing */
+        .recent-initiatives {
+            margin-top: 30px;
+            /* Extra space above recent initiatives */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .minister-box img {
+                width: 80px;
+            }
+        }
+
+        /* Ensure the carousel div matches the image size */
+        #schemeCarousel {
+            max-width: 400px;
+            /* Adjust width based on image size */
+            margin: 0 auto;
+            /* Center the carousel */
+        }
+
+        /* Style for scheme container */
+        .scheme-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ensure images are responsive */
+        .scheme-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            /* Slightly rounded corners */
+        }
+
+        /* Style for modern buttons */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Ensure icons are visible */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+            /* Make them white */
+        }
+
+        /* General Styling
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #e6ffe6, #f9f9f9);
+        } */
+
+        /* About Section Styling */
+        .about-section {
+            background: #f5fff0;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            transition: transform 0.3s ease-in-out;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .about-container:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text {
+            text-align: center;
+            width: 100%;
+        }
+
+        .about-section h2 {
+            font-size: 32px;
+            color: #2c6e49;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2c6e49;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 30px;
+        }
+
+        .about-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .about-list li {
+            font-size: 18px;
+            color: #444;
+            padding: 12px 20px;
+            background: #f9f9f9;
+            border-left: 5px solid #2c6e49;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .about-list li:hover {
+            background: #e6ffe6;
+        }
+
+        .about-image-container {
+            flex: 0.5;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image-container img {
+            width: 350px;
+            height: 200px;
+            border-radius: 10%;
+            object-fit: cover;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .about-image-container img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="https://www.india.gov.in/"><img src="https://www.india.gov.in/sites/upload_files/npi/files/logo_1.png"
+                alt=""></a>
+        <h1 style="color: aliceblue;">Agricultural Department of India</h1>
+    </header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <!-- Mobile Menu Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light btn-custom" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light btn-custom" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light btn-custom" href="initiatives.html">Initiatives</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light btn-custom" href="#redi">Schemes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light btn-custom" href="data.html">Agricultural Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light btn-custom" href="weatherUpdates.html">Weather Updates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light btn-custom" href="tipsforprotection.html">Tips</a>
+                </li>
+                <!-- Google Translate Dropdown -->
+                <li class="nav-item d-flex align-items-center ms-3">
+                    <div id="google_translate_element"></div>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <div class="box">
+        <form action="https://www.google.com/search" method="get" class="search-form">
+            <input type="text" placeholder="  Search Keywords..." name="query" class="search-input">
+            <button type="submit" class="search-button">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfQHf5WtmpVk8V6vq2nPpg8xj61t88oZR8_yd3JOh95FBoLJe75YfKdHAiJgaXqAmn2Zc&usqp=CAU"
+                    alt="Search" class="search-icon">
+            </button>
+        </form>
+        <a class="btn1" href="Signin.html" id="signin"><button class="s">Sign in</button></a>
+        <a class="btn1" href="registration.html"><button class="r">Register</button></a>
+    </div>
+    <div class="slider-container">
+        <div class="slides">
+            <img src="https://cbpssubscriber.mygov.in/assets/uploads/3rpbtfC38B9muoRQ?58" alt="Image 1">
+            <img src="https://agriwelfare.gov.in/Documents/Banner/JanJatiyaDiwas_2024.jpg" alt="Image 2">
+            <img src="https://agriwelfare.gov.in/Documents/Banner/DSC_0483.jpg" alt="Image 3">
+            <img src="https://agriwelfare.gov.in/Documents/Banner/ShivrajSingh_0.jpg" alt="Image 4">
+            <img src="https://agriwelfare.gov.in/Documents/Banner/Rabi_Abhiyan_21102024.jpg" alt="Image 5">
+            <img src="https://agriwelfare.gov.in/Documents/Banner/Krishi_DSS_2_0.jpg" alt="Image 6">
+            <img src="https://agriwelfare.gov.in/Documents/Banner/Krishi_Nivesh_0.jpg" alt="Image 7">
+            <img src="https://agriwelfare.gov.in/Documents/Banner/Krishi_DSS_3_1.jpg" alt="Image 8">
+
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Ministers Section -->
+                <div class="col-md-4">
+                    <div class="minister-section text-center">
+
+                        <!-- Minister 1 -->
+                        <div class="minister-box">
+                            <a href="https://sansad.in/ls/members/biography/96?from=members" target="_blank"
+                                class="link_">
+                                <img src="https://agriwelfare.gov.in/public/images/shivraj.jpg"
+                                    alt="Shri Shivraj Singh Chouhan">
+                                <h4>Shri Shivraj Singh Chouhan</h4>
+                                <p>Hon’ble Minister of Agriculture & Farmers Welfare</p>
+                            </a>
+                        </div>
+
+                        <!-- Minister 2 & 3 -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="minister-box">
+                                    <a href="https://sansad.in/rs/members/biographyM/2268" target="_blank"
+                                        class="link_">
+                                        <img src="https://agriwelfare.gov.in/public/images/Shri-Ram-Nath-Thakur.jpg"
+                                            alt="Shri Ramnath Thakur">
+                                        <h4>Shri Ramnath Thakur</h4>
+                                        <p>Hon'ble Minister of State</p>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="minister-box">
+                                    <a href="https://sansad.in/ls/members/biography/5203?from=members" target="_blank"
+                                        class="link_">
+                                        <img src="https://agriwelfare.gov.in/public/images/Shri-Bhagirath-Choudhary.jpg"
+                                            alt="Shri Bhagirath Choudhary">
+                                        <h4>Shri Bhagirath Choudhary</h4>
+                                        <p>Hon'ble Minister of State</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Audio Section -->
+                        <div class="audio-box">
+                            <h2>Krishi Geet</h2>
+                            <audio controls>
+                                <source src="public/images/audio_agri.mpeg" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Section (DA & FW Organisation) -->
+                <div class="col-md-8">
+                    <div class="content-box">
+                        <h4>DA & FW ORGANISATION</h4>
+                        <p>The DA & FW is organized into 28 Divisions and has five attached offices and twenty-one
+                            subordinate offices for coordination with state agencies and implementation of Central
+                            Sector Schemes.</p>
+                        <a href="/en/About" class="more-btn">More</a>
+                    </div>
+
+                    <!-- Recent Initiatives -->
+                    <div class="recent-initiatives">
+                        <h4>Recent Initiatives</h4>
+                        <p>Learn about the latest projects and government initiatives aimed at improving agriculture.
+                        </p>
+                        <a href="/en/Recent" class="more-btn">More</a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="text-center">
+                        <img src="https://agriwelfare.gov.in/public/images/agriculture-img-1.png"
+                            alt="Agriculture Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2>About Us</h2>
+            <p>The <span class="highlight">Agricultural Department of India</span> is dedicated to supporting
+                farmers and ensuring sustainable agricultural growth.</p>
+
+            <ul class="about-list">
+                <li>We provide resources, knowledge, and support to enhance agricultural productivity and improve
+                    farmers' livelihoods.</li>
+                <li>My Government India is a "Sovereign, Socialist, Secular, Democratic Republic" with a
+                    parliamentary system of government.</li>
+                <li>This section introduces the Constitution of India, its origin, Parliament, various Acts, Rules,
+                    Public Notifications, Welfare Schemes, and Application Forms.</li>
+                <li>Discover the "Who's Who" of the Indian Government and access important information that may help
+                    in daily life.</li>
+            </ul>
+
+            <div class="about-image-container">
+                <img src="https://static.mygov.in/saas/s3fs-saas/nagaland/styles/large-image/public/Deaprtment%20of%20Agriculture%20(1).jpg"
+                    alt="Farming Fields" >
+            </div>
+        </div>
+    </section>
+
+    <h2 id="redi" style="text-align: center;color: #009900;font-weight: 600;font-size: 40px;">Schemes</h2>
+    <div id="schemeCarousel" class="carousel slide" data-bs-ride="carousel" id="schemes">
+        <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+                <a href="https://pmfby.gov.in/">
+                    <div class="scheme-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo6zd7GWsHxvrTjH7ygfRR8Exafqw_N87QZg&s"
+                            class="scheme-img" alt="PMFBY Scheme">
+                    </div>
+                </a>
+                <p>
+                    Pradhan Mantri Fasal Bima Yogna
+                </p>
+            </div>
+            <div class="carousel-item">
+                <a href="https://www.myscheme.gov.in/schemes/kcc">
+                    <div class="scheme-container">
+                        <img src="https://etimg.etb2bimg.com/photo/104568073.cms" class="scheme-img" alt="KCC Scheme">
+                    </div>
+                </a>
+                <p>Kisan Credit Card</p>
+            </div>
+            <div class="carousel-item">
+                <a href="https://dmsouthwest.delhi.gov.in/scheme/paramparagat-krishi-vikas-yojana/">
+                    <div class="scheme-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrZEdmW-IybVXFC1DKC6r2g05GqEdbVr578g&s"
+                            class="scheme-img" alt="PKVY Scheme">
+                        </div>
+                    </a>
+                    <p>Paramparagat Krishi Vikas Yojana</p>
+            </div>
+            <div class="carousel-item">
+                <a href="https://rkvy.da.gov.in/">
+                    <div class="scheme-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8iMe-KOLZFUosdT59Vx6_x_eFMwCaWgSGNw&s"
+                            class="scheme-img" alt="KCC Scheme">
+                        </div>
+                    </a>
+                    <p>Rashtriya Krishi Vikas Yogna</p>
+            </div>
+            <div class="carousel-item">
+                <a href="https://hortnet.gov.in/NHMhome_new.aspx/">
+                    <div class="scheme-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlc_mY-BbfRuHxl17HqkhfV1O-n1_Rn7EujA&s"
+                            class="scheme-img" alt="KCC Scheme">
+                        </div>
+                    </a>
+                    <p>National Horiticulture Mission</p>
+            </div>
+            <div class="carousel-item">
+                <a
+                    href="https://www.indiafilings.com/learn/integrated-scheme-for-agricultural-marketing/#:~:text=Objectives%20of%20ISAM,to%20boost%20the%20farmer's%20income">
+                    <div class="scheme-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK5wsG4KwwBMIqUOkDMzs7qmmf17QlaUOIdQ&s"
+                            class="scheme-img" alt="KCC Scheme">
+                      
+                    </div>
+                </a>
+                <p>Integrated Scheme for Agricultural & Marketing</p>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#schemeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#schemeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+
+
+    <section id="data" class="aims-section">
+        <div class="aims-container">
+            <h2>Our Aims and Visions</h2>
+            <p>Our mission is to drive agricultural progress, empower farmers, and promote sustainable farming
+                practices. We envision a future where agriculture thrives in both <span class="highlight">rural and
+                    urban areas</span>, ensuring food security and economic growth.</p>
+
+            <ul class="aims-list">
+                <li><img src="https://cdn-icons-png.flaticon.com/128/2332/2332503.png" class="aims-icon"
+                        alt="Farmer Icon"> Empowering farmers with modern techniques, financial support, and
+                    education.</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/128/3464/3464724.png" class="aims-icon"
+                        alt="Urban Farming Icon"> Encouraging urban farming initiatives to create self-sustaining
+                    cities.</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/128/3063/3063176.png" class="aims-icon"
+                        alt="Organic Farming Icon"> Promoting organic and eco-friendly agricultural practices.</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/128/3082/3082045.png" class="aims-icon"
+                        alt="AI in Farming Icon"> Leveraging technology and AI for precision farming and better
+                    yield.</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/128/684/684908.png" class="aims-icon" alt="Trade Icon">
+                    Building a strong agricultural network for global collaboration and trade.
+                </li>
+            </ul>
+
+            <div class="aims-image-container">
+                <img class="aim"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkumU4SEC1xW6OX19JrR12ad1-5iVViyt25A&s"
+                    alt="Agriculture Vision">
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer mt-5 py-4 text-white" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <h3 class="fw-bold">Contact Us</h3>
+                    <p><strong>Email:</strong> agrimin@india.gmail.com</p>
+                    <p><strong>Email:</strong> dharmendra@nic.in</p>
+                    <p><strong>Secretary:</strong> secy-agri@gov.in</p>
+                    <p><strong>Minister of State:</strong> mos-agri@nic.in</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <h3 class="fw-bold">Get in Touch</h3>
+                    <p><strong>Phone:</strong></p>
+                    <ul class="list-unstyled">
+                        <li>011-23381787</li>
+                        <li>1800-180-1551</li>
+                    </ul>
+                    <p><strong>Address:</strong> Krishi Bhawan, Dr. Rajendra Prasad Road, New Delhi-110001.</p>
+                </div>
+                <div class="col-lg-4 col-md-12 text-center">
+                    <h3 class="fw-bold">Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light my-3">
+
+            <div class="text-center">
+                <p class="mb-0">© 2025 Ministry of Agriculture and Farmers Welfare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    </div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,mr,hi,gu,te',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+    <!-- <script src="imageslider.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let currentIndex = 0;
+            const $slides = $(".slides");
+            const totalSlides = $(".slides img").length;
+
+            function showSlide(index) {
+                if (index >= totalSlides) currentIndex = 0;
+                else if (index < 0) currentIndex = totalSlides - 1;
+                else currentIndex = index;
+
+                $slides.css("transform", `translateX(${-currentIndex * 100}%)`);
+            }
+
+            function nextSlide() { showSlide(currentIndex + 1); }
+            function prevSlide() { showSlide(currentIndex - 1); }
+
+            // Auto-slide every 3 seconds
+            setInterval(nextSlide, 3000);
+
+            // Add event listeners for next/prev buttons
+            $(".next").click(nextSlide);
+            $(".prev").click(prevSlide);
+        });
+
+        $(document).ready(function () {
+            $("nav a").on("click", function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $("html, body").animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800);
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $(".search-input").focus(function () {
+                $(this).css("border", "2px solid green");
+            }).blur(function () {
+                $(this).css("border", "1px solid #ccc");
+            });
+        });
+
+        var swiper = new Swiper(".swiper-container", {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Confirmation Popup on Clicking Minister Links
+            let ministerLinks = document.querySelectorAll(".minister-box a");
+
+            ministerLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    let confirmNavigation = confirm("You are about to leave this page. Continue?");
+                    if (!confirmNavigation) {
+                        event.preventDefault();
+                    }
+                });
+            });
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

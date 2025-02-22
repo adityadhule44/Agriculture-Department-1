@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Updates</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #d4e9d7, #b3e0f2);
+            color: black;
+        }
+
+        .weather-section {
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px auto;
+            width: 85%;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            background: white;
+        }
+
+        .weather-section h2 {
+            color: #2d572c;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .weather-card {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .weather-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .weather-card img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .icon-container img {
+            width: 60px;
+            height: auto;
+            filter: grayscale(50%);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .icon-container img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .weather-image {
+            width: 80%;
+            max-width: 600px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .weather-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+        }
+
+        .weather-card p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="weather-section">
+        <h2>Weather Updates</h2>
+        <div class="card-container">
+            <div class="weather-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Temperature Icon">
+                <h3>Temperature Variations</h3>
+                <p>Extreme heat causes crop wilting and reduced yields.</p>
+                <p>Cold snaps damage sensitive crops.</p>
+            </div>
+
+            <div class="weather-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/414/414974.png" alt="Rainfall Icon">
+                <h3>Rainfall</h3>
+                <p>Insufficient rainfall leads to drought.</p>
+                <p>Excessive rain causes waterlogging.</p>
+            </div>
+
+            <div class="weather-card">
+                <img src="wind.png" alt="Wind Breeze Icon">
+                <h3>Wind</h3>
+                <p>Strong winds uproot plants and reduce pollination.</p>
+                <p>Dust storms erode fertile soil.</p>
+            </div>
+
+            <div class="weather-card">
+                <img src="hailstorm.png" alt="Hailstorm Icon">
+                <h3>Hailstorms</h3>
+                <p>Hail damages crops, especially fruits and vegetables.</p>
+                <p>High humidity increases fungal diseases.</p>
+            </div>
+        </div>
+        <img class="weather-image"
+            src="https://media.istockphoto.com/id/1388420740/photo/net-zero-and-carbon-neutral-concepts-net-zero-emissions-goals-a-climate-neutral-long-term.jpg?s=612x612&w=0&k=20&c=3ZsKkJHs8FnAk5dXdCOjd85DyKu3RissYxk161yFgBM="
+            alt="Climatic Change">
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".weather-card");
+
+            cards.forEach(card => {
+                card.addEventListener("mouseover", () => {
+                    card.style.transform = "scale(1.05)";
+                    card.style.boxShadow = "0px 8px 15px rgba(0, 0, 0, 0.3)";
+                });
+
+                card.addEventListener("mouseout", () => {
+                    card.style.transform = "scale(1)";
+                    card.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.2)";
+                });
+
+                card.addEventListener("click", () => {
+                    card.classList.toggle("flipped");
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

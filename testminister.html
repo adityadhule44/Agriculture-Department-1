@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Ministry</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #e6ffe6, #f9f9f9);
+            padding: 20px; /* Added slight padding for spacing */
+        }
+
+        /* Ministers Section */
+        .minister-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+            margin-bottom: 20px; /* Added spacing */
+        }
+
+        .minister-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .minister-box img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .minister-box h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .minister-box p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px; /* Spacing before button */
+        }
+
+        /* Modern Underline for Headings */
+        .content-box h4, .recent-initiatives h4 {
+            font-size: 20px;
+            display: inline-block;
+            border-bottom: 3px solid #8B4513; /* Brown underline */
+            padding-bottom: 5px; /* Space between text and underline */
+            margin-bottom: 15px; /* Space below heading */
+        }
+
+        /* Content Box */
+        .content-box, .recent-initiatives {
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px; /* Increased space between sections */
+        }
+
+        /* Styled More Button */
+        .more-btn {
+            display: inline-block;
+            background: #8B4513; /* Brown color */
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px; /* Space above button */
+            display: block;
+            width: fit-content;
+        }
+
+        .more-btn:hover {
+            background: #A0522D; /* Lighter brown on hover */
+        }
+
+        /* Adjust Spacing */
+        .recent-initiatives {
+            margin-top: 30px; /* Extra space above recent initiatives */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .minister-box img {
+                width: 80px;
+            }
+        }
+
+        /* Minister Box Styles */
+.minister-box a {
+    text-decoration: none; /* Removes underline */
+    color: #333; /* Dark gray color */
+}
+
+/* Ensure no underline appears when hovered */
+.minister-box a:hover {
+    text-decoration: none;
+    color: #222; /* Slightly darker on hover */
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Ministers Section -->
+            <div class="col-md-4">
+                <div class="minister-section text-center">
+                    
+                    <!-- Minister 1 -->
+                    <div class="minister-box">
+                        <a href="https://sansad.in/ls/members/biography/96?from=members" target="_blank" class="link_">
+                            <img src="https://agriwelfare.gov.in/public/images/shivraj.jpg" alt="Shri Shivraj Singh Chouhan">
+                            <h4>Shri Shivraj Singh Chouhan</h4>
+                            <p>Hon’ble Minister of Agriculture & Farmers Welfare</p>
+                        </a>
+                    </div>
+
+                    <!-- Minister 2 & 3 -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="minister-box">
+                                <a href="https://sansad.in/rs/members/biographyM/2268" target="_blank" class="link_">
+                                    <img src="https://agriwelfare.gov.in/public/images/Shri-Ram-Nath-Thakur.jpg" alt="Shri Ramnath Thakur">
+                                    <h4>Shri Ramnath Thakur</h4>
+                                    <p>Hon'ble Minister of State</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="minister-box">
+                                <a href="https://sansad.in/ls/members/biography/5203?from=members" target="_blank" class="link_">
+                                    <img src="https://agriwelfare.gov.in/public/images/Shri-Bhagirath-Choudhary.jpg" alt="Shri Bhagirath Choudhary">
+                                    <h4>Shri Bhagirath Choudhary</h4>
+                                    <p>Hon'ble Minister of State</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audio Section -->
+                    <div class="audio-box">
+                        <h2>Krishi Geet</h2>
+                        <audio controls>
+                            <source src="public/images/audio_agri.mpeg" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section (DA & FW Organisation) -->
+            <div class="col-md-8">
+                <div class="content-box">
+                    <h4>DA & FW ORGANISATION</h4>
+                    <p>The DA & FW is organized into 28 Divisions and has five attached offices and twenty-one subordinate offices for coordination with state agencies and implementation of Central Sector Schemes.</p>
+                    <a href="/en/About" class="more-btn">More</a>
+                </div>
+
+                <!-- Recent Initiatives -->
+                <div class="recent-initiatives">
+                    <h4>Recent Initiatives</h4>
+                    <p>Learn about the latest projects and government initiatives aimed at improving agriculture.</p>
+                    <a href="/en/Recent" class="more-btn">More</a>
+                </div>
+
+                <!-- Image -->
+                <div class="text-center">
+                    <img src="https://agriwelfare.gov.in/public/images/agriculture-img-1.png" alt="Agriculture Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Confirmation Popup on Clicking Minister Links
+        let ministerLinks = document.querySelectorAll(".minister-box a");
+
+        ministerLinks.forEach(link => {
+            link.addEventListener("click", function (event) {
+                let confirmNavigation = confirm("You are about to leave this page. Continue?");
+                if (!confirmNavigation) {
+                    event.preventDefault();
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
